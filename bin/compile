@@ -26,5 +26,8 @@ export_env_dir() {
 
 export_env_dir "$ENV_DIR"
 
+# List the available things to run
+yarn run
+
 yarn run build-storybook --version
 yarn run build-storybook
