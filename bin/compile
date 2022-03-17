@@ -7,10 +7,13 @@ ENV_DIR=${3:-}
 cd $BUILD_DIR
 
 echo "PDW"
-ls
+ls -alh
+
+tree -L 2
 
 echo "node_modules"
 ls node_modules
+ls node_modules/
 
 echo "node_modules/.bin"
 ls node_modules/.bin/
