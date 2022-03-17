@@ -6,8 +6,17 @@ ENV_DIR=${3:-}
 
 cd $BUILD_DIR
 
+echo "PDW"
+ls
+
+echo "node_modules"
+ls node_modules
+
 echo "node_modules/.bin"
 ls node_modules/.bin/
+
+echo "node_modules/bin"
+ls node_modules/bin/
 
 # Environment setup functions
 # Taken from https://github.com/heroku/heroku-buildpack-nodejs/blob/main/lib/environment.sh
@@ -29,5 +38,4 @@ export_env_dir "$ENV_DIR"
 # List the available things to run
 yarn run
 
-yarn run build-storybook --version
 yarn run build-storybook
