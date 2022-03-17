@@ -4,7 +4,7 @@
 BUILD_DIR=$1
 ENV_DIR=${3:-}
 
-cd $BUILD_DIR
+# cd $BUILD_DIR
 
 ls "$ENV_DIR"
 
