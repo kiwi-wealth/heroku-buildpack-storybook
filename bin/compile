@@ -10,7 +10,7 @@ cd $BUILD_DIR
 # Taken from https://github.com/heroku/heroku-buildpack-nodejs/blob/main/lib/environment.sh
 export_env_dir() {
   env_dir=$1
-  acceptlist_regex=${2:-'FONT_AWESOME_AUTH_TOKEN'}
+  acceptlist_regex=${2:-''}
   denylist_regex=${3:-'^(PATH|GIT_DIR|CPATH|CPPATH|LD_PRELOAD|LIBRARY_PATH)$'}
   if [ -d "$env_dir" ]; then
     for e in $(ls $env_dir); do
