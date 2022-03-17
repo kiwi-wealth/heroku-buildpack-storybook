@@ -9,20 +9,15 @@ cd $BUILD_DIR
 # Environment setup functions
 # Taken from https://github.com/heroku/heroku-buildpack-nodejs/blob/main/lib/environment.sh
 export_env_dir() {
-  local env_dir=$1
+  env_dir=$1
+  acceptlist_regex=${2:-'FONT_AWESOME_AUTH_TOKEN'}
+  denylist_regex=${3:-'^(PATH|GIT_DIR|CPATH|CPPATH|LD_PRELOAD|LIBRARY_PATH)$'}
   if [ -d "$env_dir" ]; then
-    local whitelist_regex=${2:-'FONT_AWESOME_AUTH_TOKEN'}
-    local blacklist_regex=${3:-'^(PATH|GIT_DIR|CPATH|CPPATH|LD_PRELOAD|LIBRARY_PATH|LANG|BUILD_DIR)$'}
-    # shellcheck disable=SC2164
-    pushd "$env_dir" >/dev/null
-    for e in *; do
-      [ -e "$e" ] || continue
-      echo "$e" | grep -E "$whitelist_regex" | grep -qvE "$blacklist_regex" &&
-      export "$e=$(cat "$e")"
+    for e in $(ls $env_dir); do
+      echo "$e" | grep -E "$acceptlist_regex" | grep -qvE "$denylist_regex" &&
+      export "$e=$(cat $env_dir/$e)"
       :
     done
-    # shellcheck disable=SC2164
-    popd >/dev/null
   fi
 }
 
