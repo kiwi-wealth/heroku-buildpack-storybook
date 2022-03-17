@@ -38,7 +38,11 @@ export_env_dir() {
 
 export_env_dir "$ENV_DIR"
 
+yarn install
+
 # List the available things to run
 yarn run
 
 yarn run build-storybook
+
+rm -rf node_modules
