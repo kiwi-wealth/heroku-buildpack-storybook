@@ -4,9 +4,7 @@
 BUILD_DIR=$1
 ENV_DIR=${3:-}
 
-# cd $BUILD_DIR
-
-ls "$ENV_DIR"
+cd $BUILD_DIR
 
 # Environment setup functions
 # Taken from https://github.com/heroku/heroku-buildpack-nodejs/blob/main/lib/environment.sh
