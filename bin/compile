@@ -6,6 +6,9 @@ ENV_DIR=${3:-}
 
 cd $BUILD_DIR
 
+ls
+cat package.json
+
 # Environment setup functions
 # Taken from https://github.com/heroku/heroku-buildpack-nodejs/blob/main/lib/environment.sh
 export_env_dir() {
